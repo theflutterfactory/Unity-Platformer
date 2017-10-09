@@ -20,12 +20,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - BG
+  - Player
+  - MonsterBullet
+  - PlayerBullet
+  - Monster
   - 
   - 
   - 

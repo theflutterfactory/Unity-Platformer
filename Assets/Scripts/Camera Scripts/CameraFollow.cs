@@ -15,12 +15,13 @@ public class CameraFollow : MonoBehaviour
     playerTransform = GameObject.FindGameObjectWithTag(Tags.PLAYER_TAG).transform;
   }
 
-  void Update()
+  void FixedUpdate()
   {
     if (playerTransform)
     {
       Vector3 playerPosition = new Vector3(playerTransform.position.x + offsetX,
       constantY, playerTransform.position.z + offsetZ);
+      transform.position = Vector3.Lerp(transform.position, playerPosition, cameraLerpTime);
     }
   }
 }
