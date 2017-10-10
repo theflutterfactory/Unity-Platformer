@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
   private PlayerAnimation playerAnim;
 
+  public GameObject smokePosition;
+
   private bool gameStarted;
 
   void Awake()
@@ -80,5 +82,6 @@ public class PlayerController : MonoBehaviour
     yield return new WaitForSeconds(2);
     gameStarted = true;
     playerAnim.PlayerRun();
+    smokePosition.SetActive(true);
   }
 }
