@@ -16,4 +16,8 @@
 
   public static string LEVEL_GENERATOR = "Level Generator";
 
+  public static string HEALTH_TAG = "Health";
+  public static string MONSTER_TAG = "Monster";
+
+
 }
