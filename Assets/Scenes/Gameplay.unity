@@ -287,7 +287,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 360048071}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 8, y: 8, z: 4.5}
   m_Children:
   - {fileID: 930723791}
@@ -306,6 +306,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetSpeed: -0.0006
+  canScroll: 0
+--- !u!1 &402624404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 402624405}
+  - component: {fileID: 402624406}
+  m_Layer: 14
+  m_Name: More Platforms
+  m_TagString: MorePlatforms
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402624405
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402624404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 120, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &402624406
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402624404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 20, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &621695620
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +538,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 930723790}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 3.54, z: 0}
+  m_LocalPosition: {x: 0, y: 4.83, z: 0}
   m_LocalScale: {x: 0.12500006, y: 0.2222223, z: 0.12500003}
   m_Children: []
   m_Father: {fileID: 360048075}
@@ -621,6 +663,17 @@ MonoBehaviour:
   soundEffectPitch: 0.25
   genericFootSound: {fileID: 8300000, guid: d5d375e3da96a4651bd436acac97aa1c, type: 3}
   metalFootSound: {fileID: 8300000, guid: 7debb8b78c6cf411fb82f41619670114, type: 3}
+--- !u!114 &1468191972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1468191969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825ed9e124319467bb8847a9b877c54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1468191973 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4662566483227112, guid: 1118e85acf131412d8c09993888f8a57,

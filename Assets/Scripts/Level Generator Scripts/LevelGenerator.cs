@@ -57,7 +57,7 @@ public class LevelGenerator : MonoBehaviour
 
   void Start()
   {
-    GenerateLevel();
+    GenerateLevel(true);
   }
 
   void FillPositionInfo(PlatformPositionInfo[] platformInfo)
@@ -120,7 +120,7 @@ public class LevelGenerator : MonoBehaviour
     }
   }
 
-  void CreatePlatformsFromPositionInfo(PlatformPositionInfo[] platformPositionInfo)
+  void CreatePlatformsFromPositionInfo(PlatformPositionInfo[] platformPositionInfo, bool gameStarted)
   {
     for (int i = 0; i < platformPositionInfo.Length; i++)
     {
@@ -131,7 +131,18 @@ public class LevelGenerator : MonoBehaviour
         continue;
       }
 
-      Vector3 platformPosition = new Vector3(distBetweenPlatforms * i, positionInfo.postionY, 0);
+      Vector3 platformPosition;
+
+      if (gameStarted)
+      {
+        platformPosition = new Vector3(distBetweenPlatforms * i, positionInfo.postionY, 0);
+      }
+      else
+      {
+        platformPosition = new Vector3(distBetweenPlatforms + platformLastPosX, positionInfo.postionY, 0);
+      }
+
+      platformLastPosX = platformPosition.x;
 
       //Group platforms under one GameObject in the Unity editor for clarity
       Transform createBlock = (Transform)Instantiate(platformPrefab, platformPosition, Quaternion.identity);
@@ -139,7 +150,7 @@ public class LevelGenerator : MonoBehaviour
     }
   }
 
-  public void GenerateLevel()
+  public void GenerateLevel(bool gameStarted)
   {
     PlatformPositionInfo[] platformInfo = new PlatformPositionInfo[levelLength];
 
@@ -149,6 +160,6 @@ public class LevelGenerator : MonoBehaviour
     }
 
     FillPositionInfo(platformInfo);
-    CreatePlatformsFromPositionInfo(platformInfo);
+    CreatePlatformsFromPositionInfo(platformInfo, gameStarted);
   }
 }

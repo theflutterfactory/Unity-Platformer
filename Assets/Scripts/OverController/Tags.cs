@@ -12,5 +12,8 @@
   public static string ANIMATION_JUMP_LAND = "jumpLand";
 
   public static string BACKGROUND = "Background";
+  public static string MORE_PLATFORMS = "MorePlatforms";
+
+  public static string LEVEL_GENERATOR = "Level Generator";
 
 }
