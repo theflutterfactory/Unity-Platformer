@@ -11,5 +11,6 @@
   public static string ANIMATION_LEDGE_FALL = "ledgeFall";
   public static string ANIMATION_JUMP_LAND = "jumpLand";
 
+  public static string BACKGROUND = "Background";
 
 }

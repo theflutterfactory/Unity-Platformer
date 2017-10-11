@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
   private PlayerAnimation playerAnim;
 
+  private BGScroller bgScroller;
+
   public GameObject smokePosition;
 
   private bool gameStarted;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
   {
     myBody = GetComponent<Rigidbody>();
     playerAnim = GetComponent<PlayerAnimation>();
+    bgScroller = GameObject.Find(Tags.BACKGROUND).GetComponent<BGScroller>();
   }
 
   void Start()
@@ -82,6 +85,7 @@ public class PlayerController : MonoBehaviour
     yield return new WaitForSeconds(2);
     gameStarted = true;
     playerAnim.PlayerRun();
+    bgScroller.canScroll = true;
     smokePosition.SetActive(true);
   }
 }
