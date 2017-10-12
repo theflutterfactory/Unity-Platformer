@@ -74,7 +74,7 @@ public class Monster : MonoBehaviour
 
   void OnTriggerEnter(Collider target)
   {
-    if (target.tag == Tags.MONSTER_BULLET_TAG)
+    if (target.tag == Tags.PLAYER_BULLET_TAG)
     {
       MonsterDied();
     }

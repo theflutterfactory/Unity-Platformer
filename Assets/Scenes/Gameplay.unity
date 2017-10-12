@@ -499,6 +499,12 @@ Prefab:
       propertyPath: m_Size.y
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114929174562265726, guid: 1118e85acf131412d8c09993888f8a57,
+        type: 2}
+      propertyPath: playerBullet
+      value: 
+      objectReference: {fileID: 4842982620786380, guid: 70c9a151c41c84b909b2ffa847eedd72,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1118e85acf131412d8c09993888f8a57, type: 2}
   m_IsPrefabParent: 0
@@ -664,7 +670,7 @@ MonoBehaviour:
   platformPosMaxY: 7
   platformLengthMin: 2
   platformLengthMax: 8
-  chanceMonsterExists: 0.5
+  chanceMonsterExists: 0.9
   chanceItemExists: 0.1
   healthItemMinY: 1
   healthItemMaxY: 3

@@ -25,11 +25,14 @@ public class PlayerController : MonoBehaviour
 
   private bool gameStarted;
 
+  private PlayerHealthDamageShoot playerShoot;
+
   void Awake()
   {
     myBody = GetComponent<Rigidbody>();
     playerAnim = GetComponent<PlayerAnimation>();
     bgScroller = GameObject.Find(Tags.BACKGROUND).GetComponent<BGScroller>();
+    playerShoot = GetComponent<PlayerHealthDamageShoot>();
   }
 
   void Start()
@@ -86,6 +89,7 @@ public class PlayerController : MonoBehaviour
     gameStarted = true;
     playerAnim.PlayerRun();
     bgScroller.canScroll = true;
+    playerShoot.canShoot = true;
     smokePosition.SetActive(true);
   }
 }
