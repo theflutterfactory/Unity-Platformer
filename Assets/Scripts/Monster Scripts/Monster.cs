@@ -59,7 +59,6 @@ public class Monster : MonoBehaviour
         {
           if (canShoot)
           {
-            print("shooting");
             InvokeRepeating("StartShooting", 0.5f, 1f);
           }
 
@@ -68,7 +67,6 @@ public class Monster : MonoBehaviour
       }
       else
       {
-        print("cancel shooting");
         CancelInvoke("StartShooting");
       }
     }
