@@ -18,6 +18,8 @@
 
   public static string HEALTH_TAG = "Health";
   public static string MONSTER_TAG = "Monster";
+  public static string MONSTER_BULLET_TAG = "MonsterBullet";
+  public static string PLAYER_BULLET_TAG = "PlayerBullet";
 
 
 }
