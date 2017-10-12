@@ -15,6 +15,6 @@ public class ParticleEffectScript : MonoBehaviour
   IEnumerator StopEffect()
   {
     yield return new WaitForSeconds(timer);
-    gameObject.SetActive(false);
+    Destroy(gameObject);
   }
 }

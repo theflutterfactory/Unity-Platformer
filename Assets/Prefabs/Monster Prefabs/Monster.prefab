@@ -1058,7 +1058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1d78d8fc4434e89aaced3d78a04c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterDiedEffect: {fileID: 0}
+  monsterDiedEffect: {fileID: 1690314574036534, guid: f36f748229f2d44eb9bcaaec5c82dcd8,
+    type: 2}
   bullet: {fileID: 4563855301080616, guid: 3939f6186f3c6429394bd391fa1a296e, type: 2}
   distanceFromPlayerToStartMove: 20
   speedMin: 1
