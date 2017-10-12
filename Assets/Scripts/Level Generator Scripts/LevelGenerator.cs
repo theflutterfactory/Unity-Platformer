@@ -147,6 +147,21 @@ public class LevelGenerator : MonoBehaviour
       //Group platforms under one GameObject in the Unity editor for clarity
       Transform createBlock = (Transform)Instantiate(platformPrefab, platformPosition, Quaternion.identity);
       createBlock.parent = platformParent;
+
+      if (positionInfo.hasMonster)
+      {
+        if (gameStarted)
+        {
+          platformPosition = new Vector3(distBetweenPlatforms * i, positionInfo.postionY + 0.1f, 0);
+        }
+        else
+        {
+          platformPosition = new Vector3(distBetweenPlatforms + platformLastPosX, positionInfo.postionY + 0.1f, 0);
+        }
+
+        Transform createMonster = (Transform)Instantiate(monster, platformPosition, Quaternion.Euler(0, -90, 0));
+        createMonster.parent = monsterParent;
+      }
     }
   }
 
