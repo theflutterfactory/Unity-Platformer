@@ -329,7 +329,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -882,6 +882,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1118e85acf131412d8c09993888f8a57, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1923577870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1923577871}
+  m_Layer: 0
+  m_Name: Health Item Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1923577871
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923577870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1995217401}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1983933626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1044,7 @@ Transform:
   m_Children:
   - {fileID: 909184724}
   - {fileID: 1352849096}
+  - {fileID: 1923577871}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1039,13 +1068,13 @@ MonoBehaviour:
   platformParent: {fileID: 909184724}
   monster: {fileID: 4434240494452180, guid: 0fefb6c6e56b942af88c6ee9a9920975, type: 2}
   monsterParent: {fileID: 1352849096}
-  healthItem: {fileID: 0}
-  healthItemParent: {fileID: 0}
+  healthItem: {fileID: 4154836918270388, guid: 2b9049dc7ac804db79f1cac6326ef9de, type: 2}
+  healthItemParent: {fileID: 1923577871}
   platformPosMinY: 0
   platformPosMaxY: 7
   platformLengthMin: 2
   platformLengthMax: 8
-  chanceMonsterExists: 0.25
-  chanceItemExists: 0.1
+  chanceMonsterExists: 0.1
+  chanceItemExists: 1
   healthItemMinY: 1
   healthItemMaxY: 3

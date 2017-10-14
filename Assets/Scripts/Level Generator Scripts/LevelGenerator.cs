@@ -159,8 +159,26 @@ public class LevelGenerator : MonoBehaviour
           platformPosition = new Vector3(distBetweenPlatforms + platformLastPosX, positionInfo.postionY + 0.1f, 0);
         }
 
+        //Group monsters
         Transform createMonster = (Transform)Instantiate(monster, platformPosition, Quaternion.Euler(0, -90, 0));
         createMonster.parent = monsterParent;
+      }
+
+      if (positionInfo.hasHealthItem)
+      {
+        if (gameStarted)
+        {
+          platformPosition = new Vector3(distBetweenPlatforms * i, positionInfo.postionY +
+          Random.Range(healthItemMinY, healthItemMaxY), 0);
+        }
+        else
+        {
+          platformPosition = new Vector3(distBetweenPlatforms + platformLastPosX,
+          positionInfo.postionY + Random.Range(healthItemMinY, healthItemMaxY), 0);
+        }
+        //Group health items
+        Transform createHealthItem = Instantiate(healthItem, platformPosition, Quaternion.identity);
+        createHealthItem.parent = healthItemParent;
       }
     }
   }

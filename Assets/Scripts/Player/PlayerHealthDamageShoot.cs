@@ -46,7 +46,7 @@ public class PlayerHealthDamageShoot : MonoBehaviour
 
     if (target.tag == Tags.HEALTH_TAG)
     {
-      target.gameObject.SetActive(false);
+      Destroy(target.gameObject);
     }
 
     if (target.tag == Tags.MORE_PLATFORMS)
