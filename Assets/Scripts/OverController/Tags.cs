@@ -21,5 +21,7 @@
   public static string MONSTER_BULLET_TAG = "MonsterBullet";
   public static string PLAYER_BULLET_TAG = "PlayerBullet";
 
+  public static string BOUNDS_TAG = "Bounds";
+
 
 }

@@ -8,9 +8,9 @@ TagManager:
   - Monster
   - PlayerBullet
   - MonsterBullet
-  - Bounce
   - Health
   - MorePlatforms
+  - Bounds
   layers:
   - Default
   - TransparentFX
@@ -27,7 +27,7 @@ TagManager:
   - PlayerBullet
   - Monster
   - MorePlatforms
-  - 
+  - Bounds
   - 
   - 
   - 

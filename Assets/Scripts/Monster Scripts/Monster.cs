@@ -105,7 +105,7 @@ public class Monster : MonoBehaviour
       bulletPos.x -= 1f;
 
       Transform newBullet = (Transform)Instantiate(bullet, bulletPos, Quaternion.identity);
-      newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1500f);
+      newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 500f);
       newBullet.parent = transform;
     }
   }

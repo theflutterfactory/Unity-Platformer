@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerHealthDamageShoot : MonoBehaviour
 {
-
   [SerializeField]
   private Transform playerBullet;
 
@@ -35,21 +34,19 @@ public class PlayerHealthDamageShoot : MonoBehaviour
       Transform newBullet = Instantiate(playerBullet, bulletPos, Quaternion.identity) as Transform;
       newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1500f);
       newBullet.parent = transform;
-
-      print("shooting");
     }
   }
 
   void OnTriggerEnter(Collider target)
   {
-    if (target.tag == Tags.MONSTER_BULLET_TAG)
+    if (target.tag == Tags.MONSTER_BULLET_TAG || target.tag == Tags.BOUNDS_TAG)
     {
       Destroy(gameObject);
     }
 
     if (target.tag == Tags.HEALTH_TAG)
     {
-      gameObject.SetActive(false);
+      target.gameObject.SetActive(false);
     }
 
     if (target.tag == Tags.MORE_PLATFORMS)
@@ -59,6 +56,15 @@ public class PlayerHealthDamageShoot : MonoBehaviour
       target.transform.position = temp;
 
       levelGenerator.GenerateLevel(false);
+    }
+  }
+
+  void OnCollisionEnter(Collision target)
+  {
+    if (target.gameObject.tag == Tags.MONSTER_TAG)
+    {
+      print("Player killed monster");
+      Destroy(gameObject);
     }
   }
 }
