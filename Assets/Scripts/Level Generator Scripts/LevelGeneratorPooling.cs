@@ -49,7 +49,7 @@ public class LevelGeneratorPooling : MonoBehaviour
 
       Vector3 platformPosition;
 
-      if (i < 2)
+      if (i < 5)
       {
         platformPositionY = 0f;
       }
@@ -60,6 +60,8 @@ public class LevelGeneratorPooling : MonoBehaviour
 
       platformArray[i].position = platformPosition;
       platformArray[i].parent = platformParent;
+
+      SpawnHealthAndMonsters(platformPosition, i, true);
     }
   }
 
@@ -77,6 +79,47 @@ public class LevelGeneratorPooling : MonoBehaviour
         platformArray[i].position = platformPosition;
 
         platformLastPositionX = platformPosition.x;
+
+        SpawnHealthAndMonsters(platformPosition, i, false);
+      }
+    }
+  }
+
+  void SpawnHealthAndMonsters(Vector3 platformPosition, int i, bool gameStarted)
+  {
+    if (i > 5)
+    {
+      if (Random.Range(0f, 1f) < chanceForMonsterExist)
+      {
+        if (gameStarted)
+        {
+          platformPosition = new Vector3(distanceBetweenPlatforms * i, platformPosition.y + 0.1f, 0);
+        }
+        else
+        {
+          platformPosition = new Vector3(distanceBetweenPlatforms * i,
+          platformPosition.y + platformLastPositionX, 0);
+        }
+
+        Transform createMonster = Instantiate(monster, platformPosition, Quaternion.Euler(0, -90, 0)) as Transform;
+        createMonster.parent = monsterParent;
+      }
+
+      if (Random.Range(0f, 1f) < chanceHealthItemExist)
+      {
+        if (gameStarted)
+        {
+          platformPosition = new Vector3(distanceBetweenPlatforms * i,
+          platformPosition.y + Random.Range(healthItemMinY, healthItemMaxY), 0);
+        }
+        else
+        {
+          platformPosition = new Vector3(distanceBetweenPlatforms + platformLastPositionX,
+          platformPosition.y + Random.Range(healthItemMinY, healthItemMaxY), 0);
+        }
+
+        Transform createHealthItem = Instantiate(healthItem, platformPosition, Quaternion.identity) as Transform;
+        createHealthItem.parent = healthItemParent;
       }
     }
   }
