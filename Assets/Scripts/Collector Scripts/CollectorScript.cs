@@ -9,7 +9,7 @@ public class CollectorScript : MonoBehaviour
   {
     if (target.tag == Tags.PLATFORM_TAG || target.tag == Tags.HEALTH_TAG || target.tag == Tags.MONSTER_TAG)
     {
-      Destroy(target.gameObject);
+      target.gameObject.SetActive(false);
     }
   }
 }

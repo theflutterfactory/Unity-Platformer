@@ -93,7 +93,7 @@ public class Monster : MonoBehaviour
     Vector3 effectPos = transform.position;
     effectPos.y += 2f;
     Instantiate(monsterDiedEffect, effectPos, Quaternion.identity);
-    Destroy(gameObject);
+    gameObject.SetActive(false);
   }
 
   void StartShooting()

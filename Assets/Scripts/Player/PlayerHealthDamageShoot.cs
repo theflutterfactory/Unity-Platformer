@@ -10,6 +10,7 @@ public class PlayerHealthDamageShoot : MonoBehaviour
   private float distanceBetweenNewPlatforms = 120f;
 
   private LevelGenerator levelGenerator;
+  private LevelGeneratorPooling levelGeneratorPooling;
 
   [HideInInspector]
   public bool canShoot;
@@ -17,6 +18,7 @@ public class PlayerHealthDamageShoot : MonoBehaviour
   void Awake()
   {
     levelGenerator = GameObject.Find(Tags.LEVEL_GENERATOR).GetComponent<LevelGenerator>();
+    levelGeneratorPooling = GameObject.Find(Tags.LEVEL_GENERATOR).GetComponent<LevelGeneratorPooling>();
   }
 
   void FixedUpdate()
@@ -46,7 +48,7 @@ public class PlayerHealthDamageShoot : MonoBehaviour
 
     if (target.tag == Tags.HEALTH_TAG)
     {
-      Destroy(target.gameObject);
+      target.gameObject.SetActive(false);
     }
 
     if (target.tag == Tags.MORE_PLATFORMS)
@@ -55,7 +57,8 @@ public class PlayerHealthDamageShoot : MonoBehaviour
       temp.x += distanceBetweenNewPlatforms;
       target.transform.position = temp;
 
-      levelGenerator.GenerateLevel(false);
+      // levelGenerator.GenerateLevel(false);
+      levelGeneratorPooling.PoolingPlatforms();
     }
   }
 
@@ -63,7 +66,6 @@ public class PlayerHealthDamageShoot : MonoBehaviour
   {
     if (target.gameObject.tag == Tags.MONSTER_TAG)
     {
-      print("Player killed monster");
       Destroy(gameObject);
     }
   }

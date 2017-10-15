@@ -681,6 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1995217401}
   - component: {fileID: 1995217402}
+  - component: {fileID: 1995217403}
   m_Layer: 0
   m_Name: Level Generator
   m_TagString: Untagged
@@ -710,7 +711,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1995217400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a070cc8f93a94964a4c82a92619a36c, type: 3}
   m_Name: 
@@ -732,5 +733,30 @@ MonoBehaviour:
   platformLengthMax: 8
   chanceMonsterExists: 0.1
   chanceItemExists: 1
+  healthItemMinY: 1
+  healthItemMaxY: 3
+--- !u!114 &1995217403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995217400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7a6e73373ae4738ace0bfef86d2c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 4861885784044534, guid: 85f61db25897a4991b15a3c9bc6fcbbe, type: 2}
+  platformParent: {fileID: 909184724}
+  monster: {fileID: 4434240494452180, guid: 0fefb6c6e56b942af88c6ee9a9920975, type: 2}
+  monsterParent: {fileID: 1352849096}
+  healthItem: {fileID: 4154836918270388, guid: 2b9049dc7ac804db79f1cac6326ef9de, type: 2}
+  healthItemParent: {fileID: 1923577871}
+  levelLength: 100
+  distanceBetweenPlatforms: 3
+  positionMinY: 0
+  positionMaxY: 0
+  chanceForMonsterExist: 0
+  chanceHealthItemExist: 0.1
   healthItemMinY: 1
   healthItemMaxY: 3

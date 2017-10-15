@@ -21,7 +21,7 @@ public class BulletControl : MonoBehaviour
   IEnumerator TurnOffBullet()
   {
     yield return new WaitForSeconds(lifeTime);
-    Destroy(gameObject);
+    gameObject.SetActive(false);
   }
 
   void OnTriggerEnter(Collider target)
@@ -29,7 +29,7 @@ public class BulletControl : MonoBehaviour
     if (target.tag == Tags.MONSTER_TAG || target.tag == Tags.PLAYER_TAG
     || target.tag == Tags.MONSTER_BULLET_TAG || target.tag == Tags.PLAYER_BULLET_TAG)
     {
-      Destroy(gameObject);
+      gameObject.SetActive(false);
     }
   }
 }
