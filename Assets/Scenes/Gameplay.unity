@@ -753,10 +753,10 @@ MonoBehaviour:
   healthItem: {fileID: 4154836918270388, guid: 2b9049dc7ac804db79f1cac6326ef9de, type: 2}
   healthItemParent: {fileID: 1923577871}
   levelLength: 100
-  distanceBetweenPlatforms: 3
+  distanceBetweenPlatforms: 6
   positionMinY: 0
-  positionMaxY: 0
-  chanceForMonsterExist: 0
+  positionMaxY: 7
+  chanceForMonsterExist: 0.1
   chanceHealthItemExist: 0.1
   healthItemMinY: 1
   healthItemMaxY: 3
