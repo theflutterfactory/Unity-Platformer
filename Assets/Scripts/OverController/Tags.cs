@@ -26,4 +26,8 @@
   public static string GAMEPLAY_SCENE = "Gameplay";
   public static string MAIN_MENU_SCENE = "MainMenu";
 
+  public static string SCORE_TEXT = "Score";
+  public static string HEALTH_TEXT = "Health";
+  public static string LEVEL_TEXT = "Level";
+
 }
