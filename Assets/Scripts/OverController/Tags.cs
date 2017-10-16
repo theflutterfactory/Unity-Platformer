@@ -23,7 +23,7 @@
 
   public static string BOUNDS_TAG = "Bounds";
 
-  public static string GAMEPLAY_SCENE = "GamePlay";
+  public static string GAMEPLAY_SCENE = "Gameplay";
   public static string MAIN_MENU_SCENE = "MainMenu";
 
 }
