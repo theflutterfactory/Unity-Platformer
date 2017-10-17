@@ -43,11 +43,13 @@ public class PlayerHealthDamageShoot : MonoBehaviour
   {
     if (target.tag == Tags.MONSTER_BULLET_TAG || target.tag == Tags.BOUNDS_TAG)
     {
+      GameplayController.instance.TakeDamage();
       Destroy(gameObject);
     }
 
     if (target.tag == Tags.HEALTH_TAG)
     {
+      GameplayController.instance.IncrementHealth();
       target.gameObject.SetActive(false);
     }
 
@@ -66,6 +68,7 @@ public class PlayerHealthDamageShoot : MonoBehaviour
   {
     if (target.gameObject.tag == Tags.MONSTER_TAG)
     {
+      GameplayController.instance.TakeDamage();
       Destroy(gameObject);
     }
   }

@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62410fd9acfdc48438576b3ed4ab1aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canCountScore: 0
 --- !u!4 &78867346
 Transform:
   m_ObjectHideFlags: 0
@@ -1420,7 +1421,7 @@ MonoBehaviour:
   distanceBetweenPlatforms: 6
   positionMinY: 0
   positionMaxY: 7
-  chanceForMonsterExist: 0.1
+  chanceForMonsterExist: 1
   chanceHealthItemExist: 0.1
   healthItemMinY: 1
   healthItemMaxY: 3

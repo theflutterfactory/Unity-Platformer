@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
     playerAnim.PlayerRun();
     bgScroller.canScroll = true;
     playerShoot.canShoot = true;
+    GameplayController.instance.canCountScore = true;
     smokePosition.SetActive(true);
   }
 }
