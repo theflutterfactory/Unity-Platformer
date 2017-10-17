@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthDamageShoot : MonoBehaviour
 {
@@ -15,20 +16,28 @@ public class PlayerHealthDamageShoot : MonoBehaviour
   [HideInInspector]
   public bool canShoot;
 
+  private Button shootBtn;
+
   void Awake()
   {
     levelGenerator = GameObject.Find(Tags.LEVEL_GENERATOR).GetComponent<LevelGenerator>();
     levelGeneratorPooling = GameObject.Find(Tags.LEVEL_GENERATOR).GetComponent<LevelGeneratorPooling>();
+
+    shootBtn = GameObject.Find(Tags.SHOOT_BUTTON).GetComponent<Button>();
+    shootBtn.onClick.AddListener(() => Shoot());
   }
 
   void FixedUpdate()
   {
-    Fire();
+    if (Input.GetKeyDown(KeyCode.K))
+    {
+      Shoot();
+    }
   }
 
-  void Fire()
+  public void Shoot()
   {
-    if (Input.GetKeyDown(KeyCode.K) && canShoot)
+    if (canShoot)
     {
       Vector3 bulletPos = transform.position;
       bulletPos.y += 1.5f;
@@ -59,7 +68,6 @@ public class PlayerHealthDamageShoot : MonoBehaviour
       temp.x += distanceBetweenNewPlatforms;
       target.transform.position = temp;
 
-      // levelGenerator.GenerateLevel(false);
       levelGeneratorPooling.PoolingPlatforms();
     }
   }

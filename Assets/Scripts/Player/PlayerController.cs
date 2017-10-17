@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,12 +28,16 @@ public class PlayerController : MonoBehaviour
 
   private PlayerHealthDamageShoot playerShoot;
 
+  private Button jumpBtn;
+
   void Awake()
   {
     myBody = GetComponent<Rigidbody>();
     playerAnim = GetComponent<PlayerAnimation>();
     bgScroller = GameObject.Find(Tags.BACKGROUND).GetComponent<BGScroller>();
     playerShoot = GetComponent<PlayerHealthDamageShoot>();
+    jumpBtn = GameObject.Find(Tags.JUMP_BUTTON).GetComponent<Button>();
+    jumpBtn.onClick.AddListener(() => Jump());
   }
 
   void Start()
@@ -46,7 +51,10 @@ public class PlayerController : MonoBehaviour
     {
       Move();
       Grounded();
-      Jump();
+      if (Input.GetKeyDown(KeyCode.Space))
+      {
+        Jump();
+      }
     }
   }
 
@@ -58,23 +66,17 @@ public class PlayerController : MonoBehaviour
   void Grounded()
   {
     isGrounded = Physics.OverlapSphere(groundCheckPosition.position, radius, layerGround).Length > 0;
-
-    if (isGrounded && playerJumped)
-    {
-      playerJumped = false;
-      playerAnim.DidLand();
-    }
   }
 
-  void Jump()
+  public void Jump()
   {
-
-    if (Input.GetKeyDown(KeyCode.Space) && !isGrounded && canDoubleJump)
+    if (!isGrounded && canDoubleJump)
     {
       canDoubleJump = false;
       myBody.AddForce(new Vector3(0, secondJumpPower, 0));
     }
-    else if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+
+    if (isGrounded)
     {
       playerAnim.DidJump();
       myBody.AddForce(new Vector3(0, jumpPower, 0));
@@ -92,5 +94,17 @@ public class PlayerController : MonoBehaviour
     playerShoot.canShoot = true;
     GameplayController.instance.canCountScore = true;
     smokePosition.SetActive(true);
+  }
+
+  void OnCollisionEnter(Collision target)
+  {
+    if (target.gameObject.tag == Tags.PLATFORM_TAG)
+    {
+      if (playerJumped)
+      {
+        playerJumped = false;
+        playerAnim.DidLand();
+      }
+    }
   }
 }

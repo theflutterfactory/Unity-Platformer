@@ -31,4 +31,7 @@
   public static string HEALTH_TEXT = "Health";
   public static string LEVEL_TEXT = "Level";
 
+  public static string SHOOT_BUTTON = "Shoot Button";
+  public static string JUMP_BUTTON = "Jump Button";
+
 }
