@@ -549,6 +549,7 @@ MonoBehaviour:
   score: 0
   health: 0
   level: 0
+  canPlayMusic: 1
 --- !u!4 &919701876
 Transform:
   m_ObjectHideFlags: 0
@@ -854,6 +855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4e17cc094a648eaafc1b4939eef001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicBtn: {fileID: 1516954804}
+  soundOff: {fileID: 21300000, guid: 17a9bb9083e7048bab1490b9268809de, type: 3}
+  soundOn: {fileID: 21300000, guid: 01bb5eab7a8b64cd6a97888a02c6f9b1, type: 3}
 --- !u!4 &1381583887
 Transform:
   m_ObjectHideFlags: 0
@@ -942,7 +946,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1516954805}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1381583886}
+        m_MethodName: ControlMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1516954805
@@ -964,7 +979,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 01bb5eab7a8b64cd6a97888a02c6f9b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17a9bb9083e7048bab1490b9268809de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

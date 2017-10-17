@@ -18,6 +18,9 @@ public class GameplayController : MonoBehaviour
   [HideInInspector]
   public bool canCountScore;
 
+  [SerializeField]
+  private AudioSource audioSource;
+
   private BGScroller bGScroller;
 
   void Awake()
@@ -34,8 +37,17 @@ public class GameplayController : MonoBehaviour
     pausePanel.SetActive(false);
   }
 
+  void Start()
+  {
+    if (GameManager.instance.canPlayMusic)
+    {
+      audioSource.Play();
+    }
+  }
+
   void Update()
   {
+    IncrementScore(1);
   }
 
   void MakeInstance()
