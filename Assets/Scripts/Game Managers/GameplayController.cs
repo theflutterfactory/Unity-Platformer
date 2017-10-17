@@ -13,6 +13,8 @@ public class GameplayController : MonoBehaviour
 
   public static GameplayController instance;
 
+  private GameObject pausePanel;
+
   [HideInInspector]
   public bool canCountScore;
 
@@ -27,6 +29,9 @@ public class GameplayController : MonoBehaviour
     levelText = GameObject.Find(Tags.LEVEL_TEXT).GetComponent<Text>();
 
     bGScroller = GameObject.Find(Tags.BACKGROUND).GetComponent<BGScroller>();
+
+    pausePanel = GameObject.Find(Tags.PAUSE_PANEL);
+    pausePanel.SetActive(false);
   }
 
   void Update()
@@ -116,5 +121,31 @@ public class GameplayController : MonoBehaviour
 
     yield return new WaitForSecondsRealtime(2f);
     SceneManager.LoadScene(sceneName);
+  }
+
+  public void PauseGame()
+  {
+    canCountScore = false;
+    pausePanel.SetActive(true);
+    Time.timeScale = 0f;
+  }
+
+  public void ResumeGame()
+  {
+    canCountScore = true;
+    pausePanel.SetActive(false);
+    Time.timeScale = 1f;
+  }
+
+  public void BackToMainMenu()
+  {
+    Time.timeScale = 1f;
+    SceneManager.LoadScene(Tags.MAIN_MENU_SCENE);
+  }
+
+  public void Reload()
+  {
+    Time.timeScale = 1f;
+    SceneManager.LoadScene(Tags.GAMEPLAY_SCENE);
   }
 }
